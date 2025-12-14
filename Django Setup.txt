@@ -58,3 +58,4 @@ Step 13.index on top add ->{% loadstatic %}
 Step 14.add ({% static ')css/bootstrap.min.css(' %}) ,() accordingly
 
 now setupcomplete
+START
