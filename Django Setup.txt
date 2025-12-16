@@ -59,3 +59,4 @@ Step 14.add ({% static ')css/bootstrap.min.css(' %}) ,() accordingly
 
 now setupcomplete
 START
+END
