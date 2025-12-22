@@ -17,15 +17,12 @@
 					<div class="row justify-content-between">
 						<div class="col-lg-5">
 							<div class="intro-excerpt">
-								<h1>Contact</h1>
-								<p class="mb-4">Donec vitae odio quis nisl dapibus malesuada. Nullam ac aliquet velit. Aliquam vulputate velit imperdiet dolor tempor tristique.</p>
-								<p><a href="" class="btn btn-secondary me-2">Shop Now</a><a href="#" class="btn btn-white-outline">Explore</a></p>
+								<h1>Signup</h1>
+								 
 							</div>
 						</div>
 						<div class="col-lg-7">
-							<div class="hero-img-wrap">
-								<img src="{% static 'images/couch.png' %}" class="img-fluid">
-							</div>
+							 
 						</div>
 					</div>
 				</div>
@@ -84,34 +81,70 @@
                   </div> <!-- /.service -->
                 </div>
               </div>
+               <div>
+                 {% if msg %}
+                <b style="color:blue;">{{msg}}</b>
+               {% endif %}
 
-              <form>
+              <form class="form-contact contact_form" action="{% url 'signup' %}" method="post" id="contactForm" enctype="multipart/form-data">
+                {% csrf_token %}
                 <div class="row">
+
+                    
                   <div class="col-6">
                     <div class="form-group">
                       <label class="text-black" for="fname">First name</label>
-                      <input type="text" class="form-control" id="fname">
+                      <input type="text" class="form-control" name="fname" id="fname">
                     </div>
                   </div>
                   <div class="col-6">
                     <div class="form-group">
                       <label class="text-black" for="lname">Last name</label>
-                      <input type="text" class="form-control" id="lname">
+                      <input type="text" class="form-control" name="lname" id="lname">
                     </div>
                   </div>
                 </div>
+                <div class="row">
+                  <div class="col-6">
+                    <div class="form-group">
+                      <label class="text-black" for="mobile">Mobile</label>
+                      <input type="text" class="form-control" name="mobile" id="mobile">
+                    </div>
+                  </div>
+                  <div class="col-6">
+                    <div class="form-group">
+                      <label class="text-black" for="profile">Profile</label>
+                       <input class="form-control" name="profile_picture" id="profile_picture" type="file" accept="image/*" required>
+                  </div>
+                  
+                </div>
                 <div class="form-group">
                   <label class="text-black" for="email">Email address</label>
-                  <input type="email" class="form-control" id="email">
+                  <input type="email" class="form-control" name="email" id="email">
+                </div>
+                <div class="row">
+                  <div class="col-6">
+                    <div class="form-group">
+                      <label class="text-black" for="password">Password</label>
+                      <input type="text" class="form-control" name="password" id="password">
+                    </div>
+                  </div>
+                  <div class="col-6">
+                    <div class="form-group">
+                      <label class="text-black" for="cpassword">Confirm Password</label>
+                      <input type="text" class="form-control" name="cpassword" id="cpassword">
+                    </div>
+                  </div>
                 </div>
 
                 <div class="form-group mb-5">
-                  <label class="text-black" for="message">Message</label>
-                  <textarea name="" class="form-control" id="message" cols="30" rows="5"></textarea>
+                  <label class="text-black" for="address">Address</label>
+                  <textarea name="" class="form-control" id="address" name="address" cols="30" rows="5"></textarea>
                 </div>
 
-                <button type="submit" class="btn btn-primary-hover-outline">Send Message</button>
+                <button type="submit" class="btn btn-primary-hover-outline">Sign Up</button>
               </form>
+               </div>
 
             </div>
 
