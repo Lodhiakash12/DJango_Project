@@ -46,16 +46,38 @@
   <a class="nav-link dropdown-toggle" href="#" id="accountDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
     Account
   </a>
-  <ul class="dropdown-menu" aria-labelledby="accountDropdown" style="background:#3A5D50 !important; border:none !important; outline:none !important; box-shadow:none !important;textcolor:black">
-    <li><a class="dropdown-item" href="{% url 'login' %}">Login</a></li>
-    <li><a class="dropdown-item" href="{% url 'signup' %}">Signup</a></li>
+  <ul class="dropdown-menu" aria-labelledby="accountDropdown" style="background:#3A5D50 !important; border:none !important; outline:none !important; box-shadow:none !important;textcolor:black;width:200px;">
+	{% if request.session.email %}
+                     <li class="nav-item">
+                        <a class="nav-link" href="{% url 'change-password' %}">change password</a>
+                      </li>
+
+
+                     <li class="nav-item">
+                        <a class="nav-link" href="{% url 'logout' %}">Logout({{request.session.fname}})</a>
+                      </li>
+                      {% else %}
+                      <li class="nav-item">
+                        <a class="nav-link" href="{% url 'login' %}">Login</a>
+                      </li>
+                      <li class="nav-item">
+                        <a class="nav-link" href="{% url 'signup' %}">Sign up</a>
+                      </li>
+                      {% endif %}
   </ul>
 </li>
 </li>
 					</ul>
 
 					<ul class="custom-navbar-cta navbar-nav mb-2 mb-md-0 ms-5">
-						<li><a class="nav-link" href="#"><img src="{% static 'images/user.svg' %}"></a></li>
+
+						{% if request.session.profile_picture %}
+                        <li class="nav-item">
+                        <a class="nav-link" href="{% url 'profile' %}">
+                          <img src="{{request.session.profile_picture}}" style="height:50px;width:50px;border-radius:50%">
+                        </a>
+                        </li>
+                        {% endif %}
 						<li><a class="nav-link" href="cart.html"><img src="{% static 'images/cart.svg' %}"></a></li>
 					</ul>
 				</div>

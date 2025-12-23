@@ -82,13 +82,28 @@
                 </div>
               </div>
                <div>
-                 {% if msg %}
+
+                <div>
+                {% if msg %}
                 <b style="color:blue;">{{msg}}</b>
-               {% endif %}
+                {% endif %}
+                </div>
+                  
 
               <form class="form-contact contact_form" action="{% url 'signup' %}" method="post" id="contactForm" enctype="multipart/form-data">
+
                 {% csrf_token %}
                 <div class="row">
+
+                  <div class="form-group">
+                  <select class="form-control" name="usertype" id="name" type="text" required>
+                    <option>---Select User Type---</option>
+                    <option value="buyer">Buyer</option>
+                    <option value="seller">Seller</option>
+
+                  </select>
+                
+                 </div>
 
                     
                   <div class="col-6">
@@ -139,7 +154,7 @@
 
                 <div class="form-group mb-5">
                   <label class="text-black" for="address">Address</label>
-                  <textarea name="" class="form-control" id="address" name="address" cols="30" rows="5"></textarea>
+                 <input class="form-control" name="address" id="address" type="text" placeholder="Enter your Address" required>
                 </div>
 
                 <button type="submit" class="btn btn-primary-hover-outline">Sign Up</button>

@@ -10,6 +10,7 @@ class User(models.Model):
     address=models.TextField()
     email=models.EmailField()
     password=models.CharField(max_length=100)
+    usertype=models.CharField(max_length=100,default="buyer")
      
 
     def __str__(self):
