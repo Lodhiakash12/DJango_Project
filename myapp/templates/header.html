@@ -94,8 +94,8 @@
 						</li>
 						{% endif %}
 						{% if request.session.email %}
-						<li style="margin-top:6px"><a class="nav-link" href="{% url 'cart' %}"><img src="{% static 'images/cart.svg' %}"></a></li>
-						<li ><a class="nav-link" href="{% url 'wishlist' %}" ><img src="{% static 'images/wishlist.png' %}" style="height:30px;width:30px ;margin-top:8px;margin-left:5px;"></a></li>
+						<li style="margin-top:6px"><a class="nav-link" href="{% url 'cart' %}"><img src="{% static 'images/cart.svg' %}" >({{request.session.cart_count}})</a></li>
+						<li ><a class="nav-link" href="{% url 'wishlist' %}" ><img src="{% static 'images/wishlist.png' %}" style="height:30px;width:30px ;margin-top:8px;margin-left:5px;">({{request.session.wishlist_count}})</a></li>
 						{% endif %}
 					</ul>
 				</div>
@@ -195,7 +195,7 @@
 				<div class="border-top copyright">
 					<div class="row pt-4">
 						<div class="col-lg-6">
-							<p class="mb-2 text-center text-lg-start">Copyright &copy;<script>document.write(new Date().getFullYear());</script>. All Rights Reserved. &mdash; Designed with love by <a href="https://untree.co">Untree.co</a> Distributed By <a href="https://themewagon.com">ThemeWagon</a>  <!-- License information: https://untree.co/license/ -->
+							<p class="mb-2 text-center text-lg-start">Copyright &copy;<script>document.write(new Date().getFullYear());</script>. All Rights Reserved. &mdash; Designed with By AakashLodhi     
             </p>
 						</div>
 

@@ -193,7 +193,7 @@
               <a class="main_btn" href="{% url 'add-to-cart' pk=product.pk %}">Add To Cart </a>
                      
               {% else %}
-              <a class="main_btn" href="{% url 'remove-from-cart' pk=product.pk %}">Remove From Cart</a>
+              <a class="main_btn" href="{% url 'remove-from-cart' pk=product.pk %} ">Remove From Cart</a>
                      
               {% endif %}
               {% if wishlist_flag == False %}
