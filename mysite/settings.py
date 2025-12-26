@@ -26,7 +26,7 @@ SECRET_KEY = 'django-insecure-g&oh1_!08i1jpmdb96e_&rp$w*ji4v3e3^&2zi*uw)$se=g&**
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['localhost', '127.0.0.1', '.pythonanywhere.com']
 
 
 # Application definition
@@ -132,3 +132,6 @@ EMAIL_USE_TLS = True
 EMAIL_PORT = 587
 EMAIL_HOST_USER = 'akashlodhi7836@gmail.com'
 EMAIL_HOST_PASSWORD = 'bakm gblm qcen optx'
+
+STRIPE_PUBLIC_KEY='pk_test_51Sevc0K2fcwg7q1KPGPcP0BggjT7PH4kwD5wmG6UUspUzUzHpZP7tTr6CFrs46d0Q1Gb9V36uoQP3tbDVWAV4HHg00gU53jOXx'
+STRIPE_PRIVATE_KEY='sk_test_51Sevc0K2fcwg7q1KsSEguPCOPpXXTILzeFVJAxDtDxlOMhpYPXUHmodFTMJzFBDzqHSKxPFj3NmLs7oERf3MjhNL00aSlgMKPl'    

@@ -1,4 +1,4 @@
-{% extends 'header.html' %}
+{% extends 'seller-header.html' %}
 {% load static %}
 {% block content %}
 <!doctype html>
@@ -17,15 +17,12 @@
 					<div class="row justify-content-between">
 						<div class="col-lg-5">
 							<div class="intro-excerpt">
-								<h1>Contact</h1>
-								<p class="mb-4">Donec vitae odio quis nisl dapibus malesuada. Nullam ac aliquet velit. Aliquam vulputate velit imperdiet dolor tempor tristique.</p>
-								<p><a href="" class="btn btn-secondary me-2">Shop Now</a><a href="#" class="btn btn-white-outline">Explore</a></p>
+								<h1>Add Product</h1>
+								 
 							</div>
 						</div>
 						<div class="col-lg-7">
-							<div class="hero-img-wrap">
-								<img src="{% static 'images/couch.png' %}" class="img-fluid">
-							</div>
+							 
 						</div>
 					</div>
 				</div>
@@ -84,42 +81,60 @@
                   </div> <!-- /.service -->
                 </div>
               </div>
+               <div>
 
-              {% if msg %}
-              <div class="alert alert-success alert-dismissible fade show" role="alert">
-                {{ msg }}
-                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-              </div>
-              {% endif %}
+                <div>
+                {% if msg %}
+                <b style="color:blue;">{{msg}}</b>
+                {% endif %}
+                </div>
+                  
 
-              <form action="{% url 'contact' %}" method="post" id="contactForm" enctype="multipart/form-data">
+              <form class="form-contact contact_form" action="{% url 'add-product' %}" method="post" id="contactForm" enctype="multipart/form-data">
+
                 {% csrf_token %}
                 <div class="row">
-                  <div class="col-6">
-                    <div class="form-group">
-                      <label class="text-black" for="fname">First name</label>
-                      <input type="text" class="form-control" name="fname" id="fname" value="{{ request.session.fname }}" required>
-                    </div>
-                  </div>
-                  <div class="col-6">
-                    <div class="form-group">
-                      <label class="text-black" for="lname">Last name</label>
-                      <input type="text" class="form-control" name="lname" id="lname" value="{{ request.session.lname }}" required>
-                    </div>
-                  </div>
-                </div>
-                <div class="form-group">
-                  <label class="text-black" for="email">Email address</label>
-                  <input type="email" class="form-control" name="email" id="email" value="{{ request.session.email }}" required>
-                </div>
 
-                <div class="form-group mb-5">
-                  <label class="text-black" for="message">Message</label>
-                  <textarea name="message" class="form-control" id="message" cols="30" rows="5" required></textarea>
-                </div>
+                  <div class="form-group" style="margin:10px">
+                  <select class="form-control" name="product_category" id="product_category" required>
+                    <option>---Select Category---</option>
+                    <option value="Chair">Chair</option>
+                    <option value="Sofa">Sofa</option>
+                    <option value="Bed">Bed</option>
+                    <option value="Table">Table</option>
+                  </select>
+                 </div>
 
-                <button type="submit" class="btn btn-primary-hover-outline">Send Message</button>
+                    
+                  <div class="col-6" style="margin:10px">
+                    <div class="form-group">
+                  <input class="form-control" name="product_name" id="product_name" type="text" placeholder="Enter Product Name" required>
+                </div>
+                  </div>
+                  <div class="col-6" style="margin:10px">
+                    <div class="form-group">
+                  <input class="form-control" name="product_price" id="product_price" type="text" placeholder="Enter Product Price" required>
+                </div>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-6" style="margin:10px">
+                     <div class="form-group">
+                  <input class="form-control" name="product_image" id="product_image" type="file" accept="image/*" required>
+                </div>
+                  </div>
+                  <div class="col-12" style="margin:10px">
+                    <div class="form-group">
+                  <textarea class="form-control" name="product_desc" id="product_desc" placeholder="Enter Product Details" required></textarea>
+                </div>
+                  </div>
+                </div>
+                 <div class="form-group mt-lg-3" style="margin:10px">
+              <button type="submit" class="btn btn-primary-hover-outline">Add Product</button>
+            </div>
+                
               </form>
+               </div>
 
             </div>
 
